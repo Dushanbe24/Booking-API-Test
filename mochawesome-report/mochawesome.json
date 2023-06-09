@@ -1,0 +1,195 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-05-03T07:30:00.796Z",
+    "end": "2023-05-03T07:30:03.911Z",
+    "duration": 3115,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b8577f8f-4e7d-4fce-8bab-853b84831c51",
+      "title": "",
+      "fullFile": "C:\\Users\\kasir\\Documents\\booking-api-test\\test\\restful_booker.js",
+      "file": "\\test\\restful_booker.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "68af5469-c408-439d-b4dc-67b5b3fce207",
+          "title": "Restful Booker API Test",
+          "fullFile": "C:\\Users\\kasir\\Documents\\booking-api-test\\test\\restful_booker.js",
+          "file": "\\test\\restful_booker.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Restful Booker API Test\"",
+              "fullTitle": "Restful Booker API Test \"before all\" hook in \"Restful Booker API Test\"",
+              "timedOut": false,
+              "duration": 659,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request(baseUrl)\n.post('/auth') // end point of URL API\n.send(authdata) //send file booking in json that's been imported\n.set('Accept', 'application/json')\n.end(function(err, response){\n    expect(response.statusCode).to.be.equal(200);\n    expect(response.body.token).not.to.be.null;\n    token = response.body.token;\n    if (err){\n        throw err;\n    }\n    done(); \n});",
+              "err": {},
+              "uuid": "79cabf1e-7ab9-4236-95ab-71229c0b633b",
+              "parentUUID": "68af5469-c408-439d-b4dc-67b5b3fce207",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Creates a new booking in the API",
+              "fullTitle": "Restful Booker API Test Creates a new booking in the API",
+              "timedOut": false,
+              "duration": 476,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request(baseUrl)\n.post('/booking') // end point of URL API\n.send(booking)\n.set('Accept', 'application/json') //Header -- Sets what format the response body is returned in\n.set('Content-Type', 'application/json') // Header -- Sets the format of payload you are sending.\n.end(function(err, response){\n    expect(response.statusCode).to.be.equal(200); //check status code\n    //assertion property check\n    expect(response.body.bookingId).not.to.be.null;\n    expect(response.body.booking.firstname).to.be.equal(booking.firstname);\n    expect(response.body.booking.lastname).to.be.equal(booking.lastname);\n    expect(response.body.booking.totalprice).to.be.equal(booking.totalprice);\n    expect(response.body.booking.depositpaid).to.be.equal(booking.depositpaid);\n    expect(response.body.booking.bookingdates.checkin).to.be.equal(booking.bookingdates.checkin);\n    expect(response.body.booking.bookingdates.checkout).to.be.equal(booking.bookingdates.checkout);\n    expect(response.body.booking.additionalneeds).to.be.equal(booking.additionalneeds);\n    //store value bookinvgId to rause in another test\n    bookingId = response.body.bookingid;\n    if (err){\n        throw err;\n    }\n    done();\n});",
+              "err": {},
+              "uuid": "f490ef23-e318-4a11-be12-8b6274170b9b",
+              "parentUUID": "68af5469-c408-439d-b4dc-67b5b3fce207",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Get a Booking by Ids",
+              "fullTitle": "Restful Booker API Test Get a Booking by Ids",
+              "timedOut": false,
+              "duration": 478,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request(baseUrl)\n.get('/booking/' + bookingId)\n.set('Accept', 'application/json')\n.set('Content-Type', 'application/json')\n.end(function(err, response){\n    expect(response.statusCode).to.be.equal(200);\n    expect(response.body.firstname).to.be.equal(booking.firstname);\n    expect(response.body.lastname).to.be.equal(booking.lastname);\n    expect(response.body.bookingdates.checkin).to.be.equal(booking.bookingdates.checkin);\n    expect(response.body.bookingdates.checkout).to.be.equal(booking.bookingdates.checkout);\n    if (err){\n        throw err;\n    }\n    done();\n});",
+              "err": {},
+              "uuid": "8f1bffec-d431-4599-848e-c9f173cfc137",
+              "parentUUID": "68af5469-c408-439d-b4dc-67b5b3fce207",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Updates a current booking",
+              "fullTitle": "Restful Booker API Test Updates a current booking",
+              "timedOut": false,
+              "duration": 494,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request(baseUrl)\n.put('/booking/' + bookingId)\n.send(updatebooking)\n.set('Accept', 'application/json')\n.set('Content-Type', 'application/json')\n.set('Cookie','token=' + token) //headers token\n.end(function(err,response){\n        expect(response.statusCode).to.be.eq(200)//check status code\n        expect(response.body.firstname).to.be.eq(updatebooking.firstname)\n        expect(response.body.lastname).to.be.eq(updatebooking.lastname)\n        expect(response.body.totalprice).to.be.eq(updatebooking.totalprice)\n        expect(response.body.depositpaid).to.be.eq(updatebooking.depositpaid)\n        expect(response.body.bookingdates.checkin).to.be.eq(updatebooking.bookingdates.checkin)\n        expect(response.body.bookingdates.checkout).to.be.eq(updatebooking.bookingdates.checkout)\n        expect(response.body.additionalneeds).to.be.eq(updatebooking.additionalneeds)\n        if (err){\n            throw err;\n        }\n        done();\n    });",
+              "err": {},
+              "uuid": "25ed3789-4348-475a-bfe5-e55d6c617cb0",
+              "parentUUID": "68af5469-c408-439d-b4dc-67b5b3fce207",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Updates a current booking with a partial payload",
+              "fullTitle": "Restful Booker API Test Updates a current booking with a partial payload",
+              "timedOut": false,
+              "duration": 481,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var firstname = \"Jim\";//Created variable firstname for updating data firstname\nvar lastname = \"Braun\";//Created variable lastname for updating data lastname\nrequest(baseUrl)\n.patch('/booking/' + bookingId)\n//the data want to update is only the firstname and lastname, so only the data sent is both\n.send({firstname: firstname,lastname: lastname})\n.set('Accept', 'application/json')\n.set('Content-Type', 'application/json')\n.set('Cookie','token=' + token) //headers token\n.end(function(err,response){\n    expect(response.statusCode).to.be.eq(200)//check status code\n    expect(response.body.firstname).to.be.eq(firstname)//value checking, the value must be the same as the contents of the variable\n    expect(response.body.lastname).to.be.eq(lastname)//value checking, the value must be the same as the contents of the variable\n    expect(response.body.totalprice).to.be.eql(updatebooking.totalprice);\n    expect(response.body.totalprice).to.be.eq(updatebooking.totalprice)\n    expect(response.body.depositpaid).to.be.eq(updatebooking.depositpaid)\n    expect(response.body.bookingdates.checkin).to.be.eq(updatebooking.bookingdates.checkin)\n    expect(response.body.bookingdates.checkout).to.be.eq(updatebooking.bookingdates.checkout)\n    expect(response.body.additionalneeds).to.be.eq(updatebooking.additionalneeds)\n    if (err){\n        throw err;\n    }\n    done();\n});",
+              "err": {},
+              "uuid": "c8a81798-e153-4432-a7fd-e5224b629cae",
+              "parentUUID": "68af5469-c408-439d-b4dc-67b5b3fce207",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deleted a Booking by ID",
+              "fullTitle": "Restful Booker API Test Deleted a Booking by ID",
+              "timedOut": false,
+              "duration": 514,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request(baseUrl)\n.delete('/booking/' + bookingId)\n.set('Content-Type', 'application/json')\n.set('Cookie','token=' + token) //headers token\n.end(function(err,response){\n    expect(response.statusCode).to.be.eq(201)//check status code\n    if (err){\n        throw err;\n    }\n    done();\n });",
+              "err": {},
+              "uuid": "3426c8c9-8169-4e69-95e0-c5e8dee99907",
+              "parentUUID": "68af5469-c408-439d-b4dc-67b5b3fce207",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f490ef23-e318-4a11-be12-8b6274170b9b",
+            "8f1bffec-d431-4599-848e-c9f173cfc137",
+            "25ed3789-4348-475a-bfe5-e55d6c617cb0",
+            "c8a81798-e153-4432-a7fd-e5224b629cae",
+            "3426c8c9-8169-4e69-95e0-c5e8dee99907"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2443,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

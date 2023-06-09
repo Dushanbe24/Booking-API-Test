@@ -1,0 +1,108 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-05-03T07:29:48.091Z",
+    "end": "2023-05-03T07:29:51.123Z",
+    "duration": 3032
+  },
+  "tests": [
+    {
+      "title": "Creates a new booking in the API",
+      "fullTitle": "Restful Booker API Test Creates a new booking in the API",
+      "file": "C:\\Users\\kasir\\Documents\\booking-api-test\\test\\restful_booker.js",
+      "duration": 480,
+      "currentRetry": 0,
+      "speed": "slow",
+      "err": {}
+    },
+    {
+      "title": "Get a Booking by Ids",
+      "fullTitle": "Restful Booker API Test Get a Booking by Ids",
+      "file": "C:\\Users\\kasir\\Documents\\booking-api-test\\test\\restful_booker.js",
+      "duration": 518,
+      "currentRetry": 0,
+      "speed": "slow",
+      "err": {}
+    },
+    {
+      "title": "Updates a current booking",
+      "fullTitle": "Restful Booker API Test Updates a current booking",
+      "file": "C:\\Users\\kasir\\Documents\\booking-api-test\\test\\restful_booker.js",
+      "duration": 542,
+      "currentRetry": 0,
+      "speed": "slow",
+      "err": {}
+    },
+    {
+      "title": "Updates a current booking with a partial payload",
+      "fullTitle": "Restful Booker API Test Updates a current booking with a partial payload",
+      "file": "C:\\Users\\kasir\\Documents\\booking-api-test\\test\\restful_booker.js",
+      "duration": 484,
+      "currentRetry": 0,
+      "speed": "slow",
+      "err": {}
+    },
+    {
+      "title": "Deleted a Booking by ID",
+      "fullTitle": "Restful Booker API Test Deleted a Booking by ID",
+      "file": "C:\\Users\\kasir\\Documents\\booking-api-test\\test\\restful_booker.js",
+      "duration": 485,
+      "currentRetry": 0,
+      "speed": "slow",
+      "err": {}
+    }
+  ],
+  "pending": [],
+  "failures": [],
+  "passes": [
+    {
+      "title": "Creates a new booking in the API",
+      "fullTitle": "Restful Booker API Test Creates a new booking in the API",
+      "file": "C:\\Users\\kasir\\Documents\\booking-api-test\\test\\restful_booker.js",
+      "duration": 480,
+      "currentRetry": 0,
+      "speed": "slow",
+      "err": {}
+    },
+    {
+      "title": "Get a Booking by Ids",
+      "fullTitle": "Restful Booker API Test Get a Booking by Ids",
+      "file": "C:\\Users\\kasir\\Documents\\booking-api-test\\test\\restful_booker.js",
+      "duration": 518,
+      "currentRetry": 0,
+      "speed": "slow",
+      "err": {}
+    },
+    {
+      "title": "Updates a current booking",
+      "fullTitle": "Restful Booker API Test Updates a current booking",
+      "file": "C:\\Users\\kasir\\Documents\\booking-api-test\\test\\restful_booker.js",
+      "duration": 542,
+      "currentRetry": 0,
+      "speed": "slow",
+      "err": {}
+    },
+    {
+      "title": "Updates a current booking with a partial payload",
+      "fullTitle": "Restful Booker API Test Updates a current booking with a partial payload",
+      "file": "C:\\Users\\kasir\\Documents\\booking-api-test\\test\\restful_booker.js",
+      "duration": 484,
+      "currentRetry": 0,
+      "speed": "slow",
+      "err": {}
+    },
+    {
+      "title": "Deleted a Booking by ID",
+      "fullTitle": "Restful Booker API Test Deleted a Booking by ID",
+      "file": "C:\\Users\\kasir\\Documents\\booking-api-test\\test\\restful_booker.js",
+      "duration": 485,
+      "currentRetry": 0,
+      "speed": "slow",
+      "err": {}
+    }
+  ]
+}
